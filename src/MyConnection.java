@@ -1,12 +1,18 @@
-// Descargar el Java JDK: https://www.oracle.com/technetwork/java/javase/downloads/index.html
-// Descargar J-Calender: http://www.toedter.com/download/jcalendar-1.4.zip
-// Descargar SQLite JDBC para Java: https://bitbucket.org/xerial/sqlite-jdbc/downloads/
+// Descargar Java:                      https://www.java.com/en/download/
+// Descargar el Java JDK:               https://www.oracle.com/technetwork/java/javase/downloads/index.html
+// Descargar J-Calender:                http://www.toedter.com/download/jcalendar-1.4.zip
+// Descargar SQLite JDBC para Java:     https://bitbucket.org/xerial/sqlite-jdbc/downloads/
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 /**
  * @author Reynaldo
@@ -51,5 +57,41 @@ public class MyConnection {
         }
         
         return c;
+    }
+    
+    public static void mainMenu(){
+        MainMenu mainMenu = new MainMenu();
+        mainMenu.setVisible(true);
+        mainMenu.pack();
+        mainMenu.setLocationRelativeTo(null);
+        mainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    
+    // Revisar si nombre de usuario ya existe
+    public static boolean checkUsername(String username)
+    {
+        PreparedStatement ps;
+        ResultSet rs;
+        boolean checkUser = false;
+        
+        String query = "SELECT * FROM USERS WHERE UNAME =?";
+        
+        try {
+            Connection c = MyConnection.getConnection();
+            ps = c.prepareStatement(query);
+            ps.setString(1, username);
+            
+            rs = ps.executeQuery();
+            
+            if(rs.next())
+            {
+                checkUser = true;
+            }
+            c.close();
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return checkUser;
     }
 }

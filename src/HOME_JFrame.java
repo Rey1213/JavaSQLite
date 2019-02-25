@@ -23,7 +23,7 @@ public class HOME_JFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -31,16 +31,16 @@ public class HOME_JFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(294, 294, 294)
+                .addGap(238, 238, 238)
                 .addComponent(jLabel1)
-                .addContainerGap(314, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(139, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(132, 132, 132)
                 .addComponent(jLabel1)
-                .addGap(132, 132, 132))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         pack();

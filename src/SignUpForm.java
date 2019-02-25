@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  * @author Reynaldo
  */
 
-public class RegisterForm extends javax.swing.JFrame {
+public class SignUpForm extends javax.swing.JFrame {
 
     /**
      * Crea nuevo Formulario
      */
-    public RegisterForm() {
+    public SignUpForm() {
         initComponents();
     }
 
@@ -34,6 +34,7 @@ public class RegisterForm extends javax.swing.JFrame {
         jLabelClose = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
+        jLabelBack = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -41,7 +42,6 @@ public class RegisterForm extends javax.swing.JFrame {
         jPasswordField_PASS = new javax.swing.JPasswordField();
         jButton_Register_ = new javax.swing.JButton();
         jButton_CANCEL = new javax.swing.JButton();
-        jLabelRegister = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField_FN = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -83,21 +83,30 @@ public class RegisterForm extends javax.swing.JFrame {
             }
         });
 
+        jLabelBack.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelBack.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelBack.setText("←");
+        jLabelBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelBackMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(365, Short.MAX_VALUE)
-                .addComponent(jLabelMin)
+                .addGap(14, 14, 14)
+                .addComponent(jLabelBack, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(108, 108, 108)
+                .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelClose)
                 .addGap(21, 21, 21))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(29, 29, 29)
-                    .addComponent(jLabel2)
-                    .addContainerGap(302, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,13 +114,10 @@ public class RegisterForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelMin, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(jLabelClose))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
+                    .addComponent(jLabelClose)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addComponent(jLabelBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(44, 62, 80));
@@ -149,16 +155,6 @@ public class RegisterForm extends javax.swing.JFrame {
         jButton_CANCEL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_CANCELActionPerformed(evt);
-            }
-        });
-
-        jLabelRegister.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelRegister.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelRegister.setText("click here to login");
-        jLabelRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelRegister.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelRegisterMouseClicked(evt);
             }
         });
 
@@ -246,10 +242,7 @@ public class RegisterForm extends javax.swing.JFrame {
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(34, 34, 34)
-                                .addComponent(jDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(jLabelRegister)))
+                                .addComponent(jDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -287,9 +280,7 @@ public class RegisterForm extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_Register_, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelRegister)
-                .addGap(30, 30, 30))
+                .addGap(59, 59, 59))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -322,15 +313,6 @@ public class RegisterForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabelMinMouseClicked
 
-    private void jLabelRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegisterMouseClicked
-        LoginForm lgf = new LoginForm();
-        lgf.setVisible(true);
-        lgf.pack(); //Crea window que epecificamente para tu pantalla
-        lgf.setLocationRelativeTo(null);    //Centrar pantalla en medio
-        lgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Operacion cuando pantalla se cierra
-        this.dispose(); //Liberar memoria
-    }//GEN-LAST:event_jLabelRegisterMouseClicked
-
     private void jButton_Register_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Register_ActionPerformed
 
         String fname = jTextField_FN.getText();
@@ -355,7 +337,7 @@ public class RegisterForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Introducir la Contraseña de nuevo");
         }
         
-        else if(checkUsername(uname))
+        else if(MyConnection.checkUsername(uname))
         {
             JOptionPane.showMessageDialog(null, "Nombre de Usuario ya existe");
         }
@@ -396,48 +378,31 @@ public class RegisterForm extends javax.swing.JFrame {
                 {
                     JOptionPane.showMessageDialog(null, "Nuevo Usuario Añadido");
                     c.close();
+                    
+                    LoginForm lgf = new LoginForm();
+                    lgf.setVisible(true);
+                    lgf.pack(); //Crea window que epecificamente para tu pantalla
+                    lgf.setLocationRelativeTo(null);    //Centrar pantalla en medio
+                    lgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Operacion cuando pantalla se cierra
+                    this.dispose(); //Liberar memoria (Cerrar ventana)
                 }
 
             } 
             catch (SQLException ex) {
-                Logger.getLogger(RegisterForm.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_jButton_Register_ActionPerformed
-
-    
-    // Revisar si nombre de usuario ya existe
-    public boolean checkUsername(String username)
-    {
-        PreparedStatement ps;
-        ResultSet rs;
-        boolean checkUser = false;
-        
-        String query = "SELECT * FROM USERS WHERE UNAME =?";
-        
-        try {
-            Connection c = MyConnection.getConnection();
-            ps = c.prepareStatement(query);
-            ps.setString(1, username);
-            
-            rs = ps.executeQuery();
-            
-            if(rs.next())
-            {
-                checkUser = true;
-            }
-            c.close();
-        } 
-        catch (SQLException ex) {
-            Logger.getLogger(RegisterForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         return checkUser;
-    }
     
     
     private void jButton_CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CANCELActionPerformed
        System.exit(0);
     }//GEN-LAST:event_jButton_CANCELActionPerformed
+
+    private void jLabelBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMouseClicked
+        MyConnection.mainMenu();
+        this.dispose();
+    }//GEN-LAST:event_jLabelBackMouseClicked
 
     /**
      * @param args argumentos de linea de comandos
@@ -456,20 +421,21 @@ public class RegisterForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegisterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegisterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegisterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegisterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Crear y visualizar el formulario */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegisterForm().setVisible(true);
+                new SignUpForm().setVisible(true);
             }
         });
     }
@@ -486,9 +452,9 @@ public class RegisterForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelBack;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
-    private javax.swing.JLabel jLabelRegister;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField_PASS;
