@@ -50,15 +50,15 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
-                      <Component id="jButtonLogin" alignment="2" min="-2" pref="68" max="-2" attributes="0"/>
+                      <Component id="jButtonLogin" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonSignUp" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonUpdate" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonDelete" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="129" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -82,7 +82,7 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButtonLogin">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Login"/>
+            <Property name="text" type="java.lang.String" value="Iniciar Sesi&#xf3;n"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLoginActionPerformed"/>
@@ -90,7 +90,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSignUp">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sign Up"/>
+            <Property name="text" type="java.lang.String" value="Crear Usuario"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSignUpActionPerformed"/>
@@ -98,7 +98,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonUpdate">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Update"/>
+            <Property name="text" type="java.lang.String" value="Actualizar Usuario"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonUpdateActionPerformed"/>
@@ -106,7 +106,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonDelete">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Delete"/>
+            <Property name="text" type="java.lang.String" value="Borrar Usuario"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteActionPerformed"/>
@@ -123,9 +123,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="117" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
                       <Component id="jLabelMin" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabelClose" min="-2" max="-2" attributes="0"/>
@@ -156,7 +156,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Main Screen"/>
+                <Property name="text" type="java.lang.String" value="Men&#xfa;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelMin">

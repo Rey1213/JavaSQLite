@@ -1,13 +1,13 @@
 /**
  * @author Reynaldo
  */
-
-public class HOME_JFrame extends javax.swing.JFrame {
+public class Welcome extends javax.swing.JFrame {
     /**
-     * Crea nuevo Formulario
+     * Crea nuevo Formulario Welcome
      */
-    public HOME_JFrame() {
+    public Welcome() {
         initComponents();
+        this.setLocationRelativeTo(null); // Centrar el Formulario
     }
 
     /**
@@ -19,28 +19,28 @@ public class HOME_JFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabelName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabelName.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
+        jLabelName.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(238, 238, 238)
-                .addComponent(jLabel1)
-                .addContainerGap(250, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(155, Short.MAX_VALUE)
+                .addComponent(jLabelName)
+                .addGap(97, 97, 97))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(jLabel1)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addGap(125, 125, 125)
+                .addComponent(jLabelName)
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         pack();
@@ -50,7 +50,7 @@ public class HOME_JFrame extends javax.swing.JFrame {
      * @param args argumentos de linea de comandos
      */
     public static void main(String args[]) {
-        /* Establecer com se ve y siente el Nimbus */
+        /* Establecer como se ve y siente el Nimbus */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -63,25 +63,26 @@ public class HOME_JFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HOME_JFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HOME_JFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HOME_JFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HOME_JFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Crear y visualizar el formulario */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HOME_JFrame().setVisible(true);
+                new Welcome().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabelName;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,3 @@
-//Para ver base de datos    https://sqliteonline.com
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,13 +8,14 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
+ *
  * @author Reynaldo
  */
 public class LoginForm extends javax.swing.JFrame {
 
     /**
-     * Crear nuevo Formulario
-    */
+     * Crea nuevo formulario LoginForm
+     */
     public LoginForm() {
         initComponents();
         this.setLocationRelativeTo(null); // Centrar el Formulario
@@ -41,11 +40,9 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jButton_LOGIN = new javax.swing.JButton();
-        jButton_CANCEL = new javax.swing.JButton();
+        jButtonLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(248, 148, 6));
 
@@ -61,7 +58,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Login Form");
+        jLabel2.setText("Iniciar Sesión");
 
         jLabelMin.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
@@ -114,11 +111,11 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(236, 240, 241));
-        jLabel4.setText("Username:");
+        jLabel4.setText("Nombre de Usuario:");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(236, 240, 241));
-        jLabel5.setText("Password:");
+        jLabel5.setText("Contraseña:");
 
         jTextField1.setBackground(new java.awt.Color(108, 122, 137));
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -128,23 +125,13 @@ public class LoginForm extends javax.swing.JFrame {
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(228, 241, 254));
 
-        jButton_LOGIN.setBackground(new java.awt.Color(34, 167, 240));
-        jButton_LOGIN.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton_LOGIN.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_LOGIN.setText("Login");
-        jButton_LOGIN.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLogin.setBackground(new java.awt.Color(34, 167, 240));
+        jButtonLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonLogin.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonLogin.setText("Ingresar");
+        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_LOGINActionPerformed(evt);
-            }
-        });
-
-        jButton_CANCEL.setBackground(new java.awt.Color(242, 38, 19));
-        jButton_CANCEL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton_CANCEL.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_CANCEL.setText("Cancel");
-        jButton_CANCEL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_CANCELActionPerformed(evt);
+                jButtonLoginActionPerformed(evt);
             }
         });
 
@@ -152,24 +139,22 @@ public class LoginForm extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton_CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton_LOGIN, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPasswordField1))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPasswordField1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(147, 147, 147)
+                .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,14 +164,12 @@ public class LoginForm extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_LOGIN, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(62, Short.MAX_VALUE))
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -208,75 +191,62 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
-       
         System.exit(0);
-        
     }//GEN-LAST:event_jLabelCloseMouseClicked
 
     private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
-        
         this.setState(JFrame.ICONIFIED);
-        
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void jLabelBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMouseClicked
-        MyConnection.mainMenu();
+        MainMenu mainMenu = new MainMenu();
+        MyConnection.setupForm(mainMenu);
         this.dispose();
     }//GEN-LAST:event_jLabelBackMouseClicked
 
-    private void jButton_CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CANCELActionPerformed
-        
-        System.exit(0);
-        
-    }//GEN-LAST:event_jButton_CANCELActionPerformed
-
-    private void jButton_LOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LOGINActionPerformed
-       
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         PreparedStatement ps;
         Connection c;
         ResultSet rs;
         String uname = jTextField1.getText();
         String pass = String.valueOf(jPasswordField1.getPassword());
-        
+
         String query = "SELECT * FROM USERS WHERE UNAME =? AND PSWD =?";
-        
+
         try {
             c = MyConnection.getConnection();
             ps = c.prepareStatement(query);
-            
+
             ps.setString(1, uname);
             ps.setString(2, pass);
-            
+
             rs = ps.executeQuery();
-            
+
             if(rs.next())
             {
-                HOME_JFrame mf = new HOME_JFrame();
-                mf.setVisible(true);
-                mf.pack();
-                mf.setLocationRelativeTo(null);
-                mf.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                mf.jLabel1.setText("Bienvenido " + uname + "!");
-                
+                Welcome welcomeForm = new Welcome();
+                MyConnection.setupForm(welcomeForm);
+                //mf.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                welcomeForm.jLabelName.setText("¡Bienvenido " + uname + "!");
+
                 c.close();
                 this.dispose();
             }
             else{
-                JOptionPane.showMessageDialog(null, "Incorrect Username Or Password", "Login Failed", 2);
+                JOptionPane.showMessageDialog(null, "Nombre de Usuario o Contraseña Incorrecta", "Login Failed", 2);
             }
-            
-        } 
+
+        }
         catch (SQLException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }//GEN-LAST:event_jButton_LOGINActionPerformed
+    }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**
      * @param args argumentos de linea de comandos
      */
     public static void main(String args[]) {
-        /* Establecer com se ve y siente el Nimbus */
+        /* Establecer como se ve y siente el Nimbus */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -298,6 +268,7 @@ public class LoginForm extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Crear y visualizar el formulario */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -308,8 +279,7 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_CANCEL;
-    private javax.swing.JButton jButton_LOGIN;
+    private javax.swing.JButton jButtonLogin;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

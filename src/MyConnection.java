@@ -19,52 +19,52 @@ import javax.swing.JFrame;
  */
 public class MyConnection {
     
-    public static Connection getConnection(){
-        
-        Connection c = null;
+    public static Connection getConnection()
+    {
+        Connection connection = null;
       
         try {
             //Realizar conexion con SQLite
            Class.forName("org.sqlite.JDBC");
-           c = DriverManager.getConnection("jdbc:sqlite:test.db");
+           connection = DriverManager.getConnection("jdbc:sqlite:user.db");
            
            // Revisar si existe la Tabla de usuarios
-            DatabaseMetaData dbm = c.getMetaData();
+            DatabaseMetaData dbmd = connection.getMetaData();
+            ResultSet tables = dbmd.getTables(null, null, "USERS", null);
             
-            ResultSet tables = dbm.getTables(null, null, "USERS", null);
             if (tables.next()) {
               System.out.println("Base de Datos se pudo abrir");
             }
-            else {
-              // Si tabla no existe
-                Statement stmt = c.createStatement();
+            else { // Si tabla no existe, se crea
+                Statement stmt = connection.createStatement();
                 String sql = "CREATE TABLE USERS " +
-                               "(ID INTEGER PRIMARY KEY     AUTOINCREMENT," +
-                               " FNAME           TEXT    NOT NULL, " + 
-                               " LNAME           TEXT    NOT NULL, " + 
-                               " UNAME           TEXT    NOT NULL, " + 
-                               " PSWD            TEXT     NOT NULL, " + 
-                               " BDATE            CHAR(10), " + 
-                               " ADDRESS         TEXT)"; 
-                stmt.executeUpdate(sql);
-                stmt.close();
+                    "(ID INTEGER PRIMARY KEY     AUTOINCREMENT," +
+                    " FNAME           TEXT    NOT NULL, " + 
+                    " LNAME           TEXT    NOT NULL, " + 
+                    " UNAME           TEXT    NOT NULL, " + 
+                    " PSWD            TEXT     NOT NULL, " + 
+                    " BDATE            CHAR(10), " + 
+                    " ADDRESS         TEXT)"; 
+                
+                stmt.executeUpdate(sql);    //Ejecuta el codigo SQL
+                stmt.close(); // "Suelta" los datos del Base de Datos
             }
-
-           
-        } catch ( Exception e ) {
+        } 
+        catch (Exception e) {
            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-           System.exit(0);
+           System.exit(0); // Cerrar pantalla
         }
         
-        return c;
+        return connection;
     }
     
-    public static void mainMenu(){
-        MainMenu mainMenu = new MainMenu();
-        mainMenu.setVisible(true);
-        mainMenu.pack();
-        mainMenu.setLocationRelativeTo(null);
-        mainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    //Abrir un formulario
+    public static void setupForm(JFrame formulario)
+    {
+        formulario.setVisible(true);                                //Hacer visible el formulario
+        formulario.pack();                                          //Establece dimensiones preferidas del formulario
+        formulario.setLocationRelativeTo(null);                     //Centrar formulario en medio de la pantalla
+        formulario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  //Operacion cuando pantalla se cierra
     }
     
     // Revisar si nombre de usuario ya existe
@@ -77,21 +77,22 @@ public class MyConnection {
         String query = "SELECT * FROM USERS WHERE UNAME =?";
         
         try {
-            Connection c = MyConnection.getConnection();
-            ps = c.prepareStatement(query);
+            Connection connection = MyConnection.getConnection();
+            ps = connection.prepareStatement(query);
             ps.setString(1, username);
             
-            rs = ps.executeQuery();
+            rs = ps.executeQuery(); //Ejecuta el codigo SQL
             
             if(rs.next())
             {
                 checkUser = true;
             }
-            c.close();
+            connection.close();   // "Suelta" los datos del Base de Datos
         } 
         catch (SQLException ex) {
             Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-         return checkUser;
+        
+        return checkUser;
     }
 }
