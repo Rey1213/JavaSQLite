@@ -1,14 +1,7 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author Reynaldo
  */
 public class LoginForm extends javax.swing.JFrame {
@@ -17,6 +10,7 @@ public class LoginForm extends javax.swing.JFrame {
      * Crea nuevo formulario LoginForm
      */
     public LoginForm() {
+        setResizable(false);
         initComponents();
         this.setLocationRelativeTo(null); // Centrar el Formulario
     }
@@ -205,40 +199,27 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelBackMouseClicked
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        PreparedStatement ps;
-        Connection c;
-        ResultSet rs;
         String uname = jTextField1.getText();
         String pass = String.valueOf(jPasswordField1.getPassword());
 
-        String query = "SELECT * FROM USERS WHERE UNAME =? AND PSWD =?";
-
-        try {
-            c = MyConnection.getConnection();
-            ps = c.prepareStatement(query);
-
-            ps.setString(1, uname);
-            ps.setString(2, pass);
-
-            rs = ps.executeQuery();
-
-            if(rs.next())
-            {
-                Welcome welcomeForm = new Welcome();
-                MyConnection.setupForm(welcomeForm);
-                //mf.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                welcomeForm.jLabelName.setText("¡Bienvenido " + uname + "!");
-
-                c.close();
-                this.dispose();
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Nombre de Usuario o Contraseña Incorrecta", "Login Failed", 2);
-            }
-
+        if(MyConnection.readQuery(uname, pass))
+        {
+            String[] userInfo = MyConnection.readQuery(uname);
+            Welcome welcomeForm = new Welcome();
+            MyConnection.setupForm(welcomeForm);
+            //mf.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            
+            welcomeForm.jLabelName1.setText(userInfo[0]);
+            welcomeForm.jLabelName2.setText(userInfo[1]);
+            welcomeForm.jLabelName3.setText(userInfo[2]);
+            welcomeForm.jLabelName4.setText(userInfo[3]);
+            welcomeForm.jLabelName5.setText(userInfo[4]);
+            welcomeForm.jLabelName6.setText(userInfo[5]);
+            
+            this.dispose();
         }
-        catch (SQLException ex) {
-            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+        else{
+            JOptionPane.showMessageDialog(null, "Nombre de Usuario o Contraseña Incorrecta", "Login Failed", 2);
         }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 

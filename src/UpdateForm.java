@@ -1,14 +1,8 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.text.SimpleDateFormat;
 
 /**
- *
  * @author Reynaldo
  */
 public class UpdateForm extends javax.swing.JFrame {
@@ -17,6 +11,7 @@ public class UpdateForm extends javax.swing.JFrame {
      * Crea nuevo formulario UpdateForm
      */
     public UpdateForm() {
+        setResizable(false);
         initComponents();
         this.setLocationRelativeTo(null); // Centrar el Formulario
     }
@@ -330,16 +325,16 @@ public class UpdateForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelBackMouseClicked
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
-        String fname = jTextField_FN.getText();
-        String lname = jTextField_LN.getText();
-        String uname = jTextField_UN.getText();
+        String fName = jTextField_FN.getText();
+        String lName = jTextField_LN.getText();
         String nUname = jTextField_UN1.getText();
         String pass = String.valueOf(jPasswordField_PASS.getPassword());
-        String re_pass = String.valueOf(jPasswordField_REPASS.getPassword());
-        String bdate = null;
+        String rePass = String.valueOf(jPasswordField_REPASS.getPassword());
+        String bDate = "0";
         String address = jTextArea_ADDRESS.getText();
+        String uName = jTextField_UN.getText();
 
-        if(uname.equals(""))
+        if(uName.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Introducir nombre de Usuario");
         }
@@ -347,15 +342,19 @@ public class UpdateForm extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Introducir nuevo nombre de Usuario");
         }
+        else if(fName.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Introducir nombre de Usuario");
+        }
         else if(pass.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Introducir Contraseña");
         }
-        else if(!pass.equals(re_pass))
+        else if(!pass.equals(rePass))
         {
-            JOptionPane.showMessageDialog(null, "Introducir la Contraseña de nuevo");
+            JOptionPane.showMessageDialog(null, "Introducir misma Contraseña de nuevo");
         }
-        else if(!MyConnection.checkUsername(uname))
+        else if(!MyConnection.readQuery(uName, pass))
         {
             JOptionPane.showMessageDialog(null, "Nombre de Usuario NO existe");
         }
@@ -365,47 +364,24 @@ public class UpdateForm extends javax.swing.JFrame {
             if(jDateChooser.getDate() != null)
             {
                 SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-                bdate = dateformat.format(jDateChooser.getDate());
+                bDate = dateformat.format(jDateChooser.getDate());
+                
+                if(bDate == null) { 
+                    bDate = "0"; 
+                }
             }
+            
+            if(MyConnection.updateQuery(fName, lName, nUname, pass, bDate, address, uName))
+            {
+                JOptionPane.showMessageDialog(null, "Usuario Actualizado");
 
-            PreparedStatement ps;
-            Connection conexion;
-            String query = "UPDATE USERS SET FNAME=?, LNAME=?, UNAME=?, PSWD=?, BDATE=?, ADDRESS=? WHERE UNAME=?";
-
-            try {
-                conexion = MyConnection.getConnection();
-                ps = conexion.prepareStatement(query);
-
-                ps.setString(1, fname);
-                ps.setString(2, lname);
-                ps.setString(3, nUname);
-                ps.setString(4, pass);
-
-                if(bdate != null)
-                {
-                    ps.setString(5, bdate);
-                }
-                else
-                {
-                    ps.setNull(5, 0);
-                }
-
-                ps.setString(6, address);
-                ps.setString(7, uname);
-
-                if(ps.executeUpdate() > 0)
-                {
-                    JOptionPane.showMessageDialog(null, "Usuario Actualizado");
-                    conexion.close();
-
-                    MainMenu mainMenu = new MainMenu();
-                    MyConnection.setupForm(mainMenu);
-                    this.dispose(); //Liberar memoria (Cerrar ventana)
-                }
-
+                MainMenu mainMenu = new MainMenu();
+                MyConnection.setupForm(mainMenu);
+                this.dispose(); //Liberar memoria (Cerrar ventana)
             }
-            catch (SQLException ex) {
-                Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
+            else 
+            {
+                JOptionPane.showMessageDialog(null, "Datos Erróneos", "Update Failed", 2);
             }
         }
     }//GEN-LAST:event_jButtonUpdateActionPerformed

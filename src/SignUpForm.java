@@ -1,14 +1,8 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author Reynaldo
  */
 public class SignUpForm extends javax.swing.JFrame {
@@ -17,6 +11,7 @@ public class SignUpForm extends javax.swing.JFrame {
      * Crea nuevo formulario SignUpForm
      */
     public SignUpForm() {
+        setResizable(false);
         initComponents();
         this.setLocationRelativeTo(null); // Centrar el Formulario
     }
@@ -156,7 +151,7 @@ public class SignUpForm extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(236, 240, 241));
-        jLabel7.setText("Appellido:");
+        jLabel7.setText("Apellido:");
 
         jTextField_LN.setBackground(new java.awt.Color(108, 122, 137));
         jTextField_LN.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -296,15 +291,15 @@ public class SignUpForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelBackMouseClicked
 
     private void jButtonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSignUpActionPerformed
-        String fname = jTextField_FN.getText();
-        String lname = jTextField_LN.getText();
-        String uname = jTextField_UN.getText();
+        String fName = jTextField_FN.getText();
+        String lName = jTextField_LN.getText();
+        String uName = jTextField_UN.getText();
         String pass = String.valueOf(jPasswordField_PASS.getPassword());
-        String re_pass = String.valueOf(jPasswordField_REPASS.getPassword());
-        String bdate = null;
+        String rePass = String.valueOf(jPasswordField_REPASS.getPassword());
+        String bDate = "0";
         String address = jTextArea_ADDRESS.getText();
 
-        if(uname.equals(""))
+        if(fName.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Introducir nombre de Usuario");
         }
@@ -312,60 +307,37 @@ public class SignUpForm extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Introducir Contraseña");
         }
-        else if(!pass.equals(re_pass))
+        else if(!pass.equals(rePass))
         {
-            JOptionPane.showMessageDialog(null, "Introducir la Contraseña de nuevo");
+            JOptionPane.showMessageDialog(null, "Introducir misma Contraseña de nuevo");
         }
-        else if(MyConnection.checkUsername(uname))
+        else if(MyConnection.checkUsername(uName))
         {
             JOptionPane.showMessageDialog(null, "Nombre de Usuario ya existe");
         }
         else
         {
-
             if(jDateChooser.getDate() != null)
             {
                 SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-                bdate = dateformat.format(jDateChooser.getDate());
+                bDate = dateformat.format(jDateChooser.getDate());
+                
+                if(bDate == null) { 
+                    bDate = "0"; 
+                }
             }
 
-            PreparedStatement ps;
-            Connection c;
-            String query = "INSERT INTO USERS (FNAME, LNAME, UNAME, PSWD, BDATE, ADDRESS) VALUES (?,?,?,?,?,?)";
+            if(MyConnection.createQuery(fName, lName, uName, pass, bDate, address))
+            {
+                JOptionPane.showMessageDialog(null, "Nuevo Usuario Añadido");
 
-            try {
-                c = MyConnection.getConnection();
-                ps = c.prepareStatement(query);
-
-                ps.setString(1, fname);
-                ps.setString(2, lname);
-                ps.setString(3, uname);
-                ps.setString(4, pass);
-
-                if(bdate != null)
-                {
-                    ps.setString(5, bdate);
-                }
-                else
-                {
-                    ps.setNull(5, 0);
-                }
-
-                ps.setString(6, address);
-
-                if(ps.executeUpdate() > 0)
-                {
-                    JOptionPane.showMessageDialog(null, "Nuevo Usuario Añadido");
-                    c.close();
-
-                    LoginForm loginForm = new LoginForm();
-                    MyConnection.setupForm(loginForm);
-                    this.dispose();
-                }
-
+                LoginForm loginForm = new LoginForm();
+                MyConnection.setupForm(loginForm);
+                this.dispose();
             }
-            catch (SQLException ex) {
-                Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
+            else 
+            {
+                JOptionPane.showMessageDialog(null, "Datos Erróneos", "Sign Up Failed", 2);
             }
         }
     }//GEN-LAST:event_jButtonSignUpActionPerformed

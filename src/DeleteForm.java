@@ -1,8 +1,3 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -15,6 +10,7 @@ public class DeleteForm extends javax.swing.JFrame {
      * Crea nuevo formulario DeleteForm
      */
     public DeleteForm() {
+        setResizable(false);
         initComponents();
         this.setLocationRelativeTo(null); // Centrar el Formulario
     }
@@ -37,6 +33,7 @@ public class DeleteForm extends javax.swing.JFrame {
         jLabelBack = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButtonErase = new javax.swing.JButton();
+        jPasswordField2 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,7 +84,7 @@ public class DeleteForm extends javax.swing.JFrame {
                 .addComponent(jLabelBack, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelClose)
@@ -106,7 +103,7 @@ public class DeleteForm extends javax.swing.JFrame {
         );
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Escribe el Nombre de Usuario que quieres borrar");
+        jLabel2.setText("Escribe el Nombre y Contraseña del Usuario que quieres borrar");
 
         jButtonErase.setBackground(new java.awt.Color(255, 51, 51));
         jButtonErase.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -123,21 +120,20 @@ public class DeleteForm extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(48, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(117, 117, 117)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(116, 116, 116)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(144, 144, 144)
-                                .addComponent(jButtonErase, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(jButtonErase, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,9 +141,11 @@ public class DeleteForm extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(68, 68, 68)
+                .addGap(46, 46, 46)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jButtonErase, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -181,41 +179,30 @@ public class DeleteForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelBackMouseClicked
 
     private void jButtonEraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEraseActionPerformed
-        String user = jTextField1.getText();
+        String uName = jTextField1.getText();
+        String pass = String.valueOf(jPasswordField2.getPassword());
         
-        if(user.equals(""))
+        if(uName.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Introducir un nombre de Usuario");
         }
-        else if(!MyConnection.checkUsername(user))
+        else if(!MyConnection.readQuery(uName, pass))
         {
-            JOptionPane.showMessageDialog(null, "Nombre de Usuario NO existe");
+            JOptionPane.showMessageDialog(null, "Nombre de Usuario o Contraseña incorrecta");
         }
         else 
         {
-            PreparedStatement ps;
-            Connection c;
-            String query = "DELETE FROM USERS WHERE UNAME = ?";
-            
-            try {
-                c = MyConnection.getConnection();
-                ps = c.prepareStatement(query);
+            if(MyConnection.deleteQuery(uName))
+            {
+                JOptionPane.showMessageDialog(null, "Usuario Borrado");
 
-                ps.setString(1, user);
-
-                if(ps.executeUpdate() > 0)
-                {
-                    JOptionPane.showMessageDialog(null, "Usuario Borrado");
-                    c.close();
-
-                    MainMenu mainMenu = new MainMenu();
-                    MyConnection.setupForm(mainMenu);
-                    this.dispose();
-                }
-
+                MainMenu mainMenu = new MainMenu();
+                MyConnection.setupForm(mainMenu);
+                this.dispose();
             }
-            catch (SQLException ex) {
-                Logger.getLogger(DeleteForm.class.getName()).log(Level.SEVERE, null, ex);
+            else 
+            {
+                JOptionPane.showMessageDialog(null, "No se pudo borrar el Usuario", "Erase Failed", 2);
             }
         }
     }//GEN-LAST:event_jButtonEraseActionPerformed
@@ -265,6 +252,7 @@ public class DeleteForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
