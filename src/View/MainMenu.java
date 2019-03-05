@@ -11,9 +11,8 @@ public class MainMenu extends javax.swing.JFrame {
      * Crea nuevo formulario MainMenu
      */
     public MainMenu() {
-        setResizable(false);
         initComponents();   //Inicializar formulario
-        this.setLocationRelativeTo(null); // Centrar el Formulario
+        Form.initForm(this);
     }
 
     /**

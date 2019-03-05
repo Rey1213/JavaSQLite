@@ -13,20 +13,25 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Date;
 
+/** Para MySQL
+* Class.forName("com.mysql.jdbc.Driver");  
+* Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/DbName","username","password");
+*/
+
 /**
  * @author Reynaldo
  */
 public class JDBC { //Java DataBase Connectivity
-    public static UserService userDB = new UserService(); 
+    public static UserService userDB = new UserService(); //Para operaciones en la Base de Datos
     
     public static Connection getConnection()
     {
-        Connection connection = null;   //Para conectarse a un base de datos
+        Connection connection = null;   //Para conectarse a una base de datos
       
         try {
-            //Realizar conexion con SQLite
-           Class.forName("org.sqlite.JDBC");
-           connection = DriverManager.getConnection("jdbc:sqlite:user.db");
+            
+           Class.forName("org.sqlite.JDBC"); //Agarrar Clase para Driver particular
+           connection = DriverManager.getConnection("jdbc:sqlite:user.db"); //Realizar conexion con SQLite
         } 
         catch (Exception e) {
            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -36,6 +41,7 @@ public class JDBC { //Java DataBase Connectivity
         return connection;
     }
     
+    //Revisar datos escritos en Formularios SignUp y Update
     private static String checkData(User user, String rePswd) {
         String msg = "";
         
@@ -55,6 +61,7 @@ public class JDBC { //Java DataBase Connectivity
         return msg;
     }
     
+    //Revisar datos para crear nuevo Usuario
     public static String newUser(String fName, String lName, String uName, String pswd, String rePswd, Date bDate, String address) {
         String msg;
         User newUser = new User(fName, lName, uName, pswd, bDate, address);
@@ -71,13 +78,14 @@ public class JDBC { //Java DataBase Connectivity
         return msg;
     }
     
+    //Revisar datos antes de iniciar sesion
     public static String tryLogin(String uName, String pswd) {
         String msg;
         
         if(uName.equals("") || pswd.equals("")) {
             msg = "Introduzca los datos del Usuario";
         }
-        else if(userDB.validateUser(uName, pswd)) {
+        else if(userDB.validateUser(uName, pswd)) { //Validar que nombre de usuario y contraseña son de un usuario
             msg = "Bienvenido!";
         }
         else {
@@ -87,10 +95,12 @@ public class JDBC { //Java DataBase Connectivity
         return msg;
     }
     
+    //Enseñar datos del Usuario
     public static void loginUser(String uName, WelcomeForm welcomeForm) {
         welcomeForm.showUserInfo(userDB.readDbUserInfo(uName));
     }
     
+    //Revisar datos para actualizar Usuario
     public static String updateUser(String fName, String lName, String oldUName, String newUName, String oldPswd, String newPswd, String newRePswd, Date bDate, String address) { 
         if(oldUName.equals("") || oldPswd.equals("")) {
             return("Introduzca antiguo Nombre de Usuario y Contraseña para cambiar datos");
@@ -111,6 +121,7 @@ public class JDBC { //Java DataBase Connectivity
         return msg;
     }
     
+    //Revisar datos para borrar un Usuario
     public static String deleteUser(String uName, String pswd) {
         String msg;
         

@@ -341,7 +341,7 @@ public class UpdateForm extends javax.swing.JFrame {
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
         String msg = 
-            JDBC.updateUser(
+            JDBC.updateUser( //Validar datos para Actualizar el Usuario
                 jTextFieldFN.getText(),    // Nombre
                 jTextFieldLN.getText(),    // Apellido
                 jTextFieldOldUN.getText(),    // Antiguo Nombre de Usuario

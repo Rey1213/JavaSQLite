@@ -294,7 +294,7 @@ public class SignUpForm extends javax.swing.JFrame {
 
     private void jButtonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSignUpActionPerformed
         String msg = 
-            JDBC.newUser(
+            JDBC.newUser( //Verificar datos del Nuevo Usuario
                 jTextFieldFN.getText(),    // Nombre
                 jTextFieldLN.getText(),    // Apellido
                 jTextFieldUN.getText(),    // Nombre de Usuario

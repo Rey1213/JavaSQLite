@@ -5,7 +5,9 @@ import Model.User;
 /**
  * @author Reynaldo
  */
-interface UserDAO { //Sin modificador solo puede ser implementado en paquete "Persistence"
+
+//Sin modificador solo puede ser implementado en paquete "Persistence"
+interface UserDAO {
     public boolean checkIfUsernameExists(String username);
     public boolean createUser(User newUser);
     public boolean validateUser(String userName, String password);

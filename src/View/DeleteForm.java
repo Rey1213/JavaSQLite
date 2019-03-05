@@ -183,9 +183,9 @@ public class DeleteForm extends javax.swing.JFrame {
 
     private void jButtonEraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEraseActionPerformed
         String msg = 
-            JDBC.deleteUser(
-                jTextFieldUN.getText(), 
-                String.valueOf(jPasswordField.getPassword())
+            JDBC.deleteUser( //Verificar datos antes de Borrar Usuario
+                jTextFieldUN.getText(), //Nombre de Usuario
+                String.valueOf(jPasswordField.getPassword()) //Contraseña
             );
         
         if(msg.equals("Usuario Borrado")) {

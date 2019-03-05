@@ -14,13 +14,13 @@ public class WelcomeForm extends javax.swing.JFrame {
         Form.initForm(this);
     }
     
-    public void showUserInfo(String[] userInfo) {
-        this.jLabelNameFN.setText(userInfo[0]);
-        this.jLabelNameLN.setText(userInfo[1]);
-        this.jLabelNameUN.setText(userInfo[2]);
-        this.jLabelNamePswd.setText(userInfo[3]);
-        this.jLabelNameBDate.setText(userInfo[4]);
-        this.jLabelNameAddress.setText(userInfo[5]);
+    public void showUserInfo(String[] userInfo) { //Desplegar la informacion del Usuario
+        this.jLabelNameFN.setText(userInfo[0]);         //Nombre
+        this.jLabelNameLN.setText(userInfo[1]);         //Apellido
+        this.jLabelNameUN.setText(userInfo[2]);         //Nombre de Usuario
+        this.jLabelNamePswd.setText(userInfo[3]);       //Contraseña
+        this.jLabelNameBDate.setText(userInfo[4]);      //Fecha de Nacimiento
+        this.jLabelNameAddress.setText(userInfo[5]);    //Domicilio
     }
 
     /**
@@ -90,9 +90,9 @@ public class WelcomeForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabelBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jLabelWelcome)
-                .addGap(70, 70, 70)
+                .addGap(59, 59, 59)
                 .addComponent(jLabelMin1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelClose1)
@@ -141,7 +141,7 @@ public class WelcomeForm extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(98, 98, 98)
+                .addGap(61, 61, 61)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabelNameFN)
                     .addComponent(jLabelNameLN)
@@ -154,7 +154,7 @@ public class WelcomeForm extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(jLabelNameFN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelNameLN)
@@ -166,7 +166,7 @@ public class WelcomeForm extends javax.swing.JFrame {
                 .addComponent(jLabelNameBDate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelNameAddress)
-                .addGap(30, 30, 30))
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -226,9 +226,6 @@ public class WelcomeForm extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(WelcomeForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Crear y visualizar el formulario */

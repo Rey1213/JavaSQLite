@@ -202,19 +202,19 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         String msg = 
-            JDBC.tryLogin(
-                jTextFieldUN.getText(), 
-                String.valueOf(jPasswordFieldPswd.getPassword())
+            JDBC.tryLogin( //Verificar datos del Usuario
+                jTextFieldUN.getText(), //Nombre de Usuario
+                String.valueOf(jPasswordFieldPswd.getPassword()) //Contrasela del Usuario
             );
 
         if(msg.equals("Bienvenido!")) {
             WelcomeForm welcomeForm = new WelcomeForm();
             Form.setupForm(welcomeForm);
-            JDBC.loginUser(
-                jTextFieldUN.getText(), 
-                welcomeForm
+            
+            JDBC.loginUser( //Obtener datos del Usuario para imprimir a la pantalla
+                jTextFieldUN.getText(), //Nombre de Usuario
+                welcomeForm //Formulario despues de Inicar Sesion
             );
-            //mf.setExtendedState(JFrame.MAXIMIZED_BOTH);
             
             this.dispose();
         }

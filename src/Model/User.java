@@ -57,8 +57,7 @@ public class User {
     private void setbDate(Date date) {
         String bDate= "0";
         
-        if(date != null)
-        {
+        if(date != null) {
             SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
             bDate = dateformat.format(date);
 

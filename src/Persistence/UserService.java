@@ -6,7 +6,7 @@ import Model.User;
  * @author Reynaldo
  */
 public class UserService {
-    private final UserDAOImpl userDaoImpl = new UserDAOImpl();
+    private final UserDAOImpl userDaoImpl = new UserDAOImpl(); //Para poder realizar acciones con la Base de Datos
     
     public boolean checkIfUsernameExists(String userName) {
         return userDaoImpl.checkIfUsernameExists(userName);

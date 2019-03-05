@@ -15,7 +15,9 @@ import java.util.logging.Logger;
 /**
  * @author Reynaldo
  */
-class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implementado en paquete "Persistence"
+
+//Sin modificador solo puede ser implementado en paquete "Persistence"
+class UserDAOImpl implements UserDAO {
     private final Connection connection = JDBC.getConnection();
     
     public UserDAOImpl() {
@@ -25,14 +27,14 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
     private void checkIfTableExists() {
         try {
            // Revisar si existe la Tabla de usuarios
-            DatabaseMetaData dbmd = connection.getMetaData();   //Obtener meta-datos de base de datos
+            DatabaseMetaData dbmd = connection.getMetaData();               //Obtener meta-datos de la base de datos
             ResultSet tables = dbmd.getTables(null, null, "USERS", null);   //Buscar tabla USERS
             
-            if (tables.next()) { //Revisar si hay informacion sobre la tabla USERS
+            if (tables.next()) { //Revisar si hay informacion en la tabla USERS
               System.out.println("Conexion Exitosa!");
             }
             else { // Si tabla no existe, se crea
-                Statement stmt = connection.createStatement(); //Crear objeto para mandar comandos SQL a el base de datos
+                Statement stmt = connection.createStatement(); //Crear objeto para mandar comandos SQL a la base de datos
                 String sql = "CREATE TABLE USERS " +
                     "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                     " FNAME     VARCHAR(20)     NOT NULL, " + 
@@ -41,10 +43,10 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
                     " PSWD      VARCHAR(20)     NOT NULL, " + 
                     " BDATE     CHAR(10), " + 
                     " ADDRESS   TEXT)"; 
-                stmt.executeUpdate(sql);    //Ejecuta el codigo SQL
+                stmt.executeUpdate(sql); //Ejecuta el codigo SQL
                 
-                stmt.close(); // "Suelta" los datos del Base de Datos
-                tables.close();
+                stmt.close();   //"Suelta" los datos de la Base de Datos
+                tables.close(); //"Suelta" datos obtenidos
             } 
         }
         catch(Exception e) {
@@ -54,22 +56,22 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
     }
     
     
-    // Revisar si nombre de usuario ya existe
+    // Revisar si nombre de usuario existe
     @Override
     public boolean checkIfUsernameExists(String username) {
         boolean checkUser = false;
-        PreparedStatement ps;
-        ResultSet rs;
+        PreparedStatement ps;       //Para poder dinamicamente construir comandos SQL
+        ResultSet rs;               //Para almacenar datos de un SQL Query
         
         String query = "SELECT * FROM USERS WHERE UNAME=?";
         
         try {
-            ps = connection.prepareStatement(query);
+            ps = connection.prepareStatement(query); //Preparar codigo SQL
             ps.setString(1, username);
             
             rs = ps.executeQuery(); //Ejecuta el codigo SQL
             
-            if(rs.next()) {
+            if(rs.next()) { //Si verdadero significa que se obtenieron datos de la Base de Datos
                 checkUser = true;
             }
             rs.close();
@@ -81,6 +83,7 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
         return checkUser;
     }
     
+    //Crear nuevo usuario
     @Override
     public boolean createUser(User newUser) {
         int i = 1;
@@ -92,12 +95,12 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
         try {
             ps = connection.prepareStatement(query);
 
-            for(String data: newUser.getData()) { 
+            for(String data: newUser.getData()) { //Obtener los datos del Usuario y inyectarlo a comando SQL
                 ps.setString(i, data);
                 i++;
             }
             
-            if(ps.executeUpdate() > 0) {
+            if(ps.executeUpdate() > 0) { //Si > 0 se ejecuto exitosamente el SQL Query
                 userAdded = true;
             }
         }  
@@ -152,7 +155,7 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
             rs = ps.executeQuery();
             
             for(int i=0; i<6; i++) {
-                userInfo[i] = rs.getString(i+2);
+                userInfo[i] = rs.getString(i+2); // i+2 para no almacenar el ID del Usuario
             }
             
             rs.close();
@@ -164,6 +167,7 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
         return userInfo;
     }
     
+    //Actualizar Usuario
     @Override
     public boolean updateUser(User updatedUser, String oldUName, String oldPswd) {
         int i = 1;
@@ -194,6 +198,7 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
         return userUpdated;
     }
     
+    //Borrar Usuario
     @Override
     public boolean deleteUser(String userName, String password) {
         boolean userDeleted = false;
