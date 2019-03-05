@@ -39,20 +39,16 @@ public class JDBC { //Java DataBase Connectivity
     private static String checkData(User user, String rePswd) {
         String msg = "";
         
-        if(user.getfName().equals(""))
-        {
+        if(user.getfName().equals("")) {
             msg = "Introduzca nombre de Usuario";
         }
-        else if(user.getPswd().equals(""))
-        {
+        else if(user.getPswd().equals("")) {
             msg = "Introduzca Contraseña";
         }
-        else if(!user.getPswd().equals(rePswd))
-        {
+        else if(!user.getPswd().equals(rePswd)) {
             msg = "Introduzca misma Contraseña de nuevo";
         }
-        else if(userDB.checkIfUsernameExists(user.getuName()))
-        {
+        else if(userDB.checkIfUsernameExists(user.getuName())) {
             msg = "Nombre de Usuario ya existe";
         }
         
@@ -65,12 +61,10 @@ public class JDBC { //Java DataBase Connectivity
         
         msg = checkData(newUser, rePswd);
         
-        if(userDB.createUser(newUser))
-        {
+        if(userDB.createUser(newUser)) {
             msg = "Nuevo Usuario Añadido";
         }
-        else 
-        {
+        else {
             msg = "No se pudo crear el Usuario";
         }
         
@@ -83,12 +77,10 @@ public class JDBC { //Java DataBase Connectivity
         if(uName.equals("") || pswd.equals("")) {
             msg = "Introduzca los datos del Usuario";
         }
-        else if(userDB.validateUser(uName, pswd))
-        {
+        else if(userDB.validateUser(uName, pswd)) {
             msg = "Bienvenido!";
         }
-        else 
-        {
+        else {
             msg = "Datos Erróneos";
         }
         
@@ -109,12 +101,10 @@ public class JDBC { //Java DataBase Connectivity
         
         msg = checkData(updatedUser, newRePswd);
         
-        if(userDB.updateUser(updatedUser, oldUName, oldPswd))
-        {
+        if(userDB.updateUser(updatedUser, oldUName, oldPswd)) {
             msg = "Usuario Actualizado";
         }
-        else 
-        {
+        else {
             msg = "No se pudo actualizar el Usuario";
         }
         
@@ -127,12 +117,10 @@ public class JDBC { //Java DataBase Connectivity
         if(uName.equals("") || pswd.equals("")) {
             msg = "Introduzca los datos del Usuario";
         }
-        else if(userDB.deleteUser(uName, pswd))
-        {
+        else if(userDB.deleteUser(uName, pswd)) {
             msg = "Usuario Borrado";
         }
-        else 
-        {
+        else {
             msg = "No se pudo borrar el Usuario";
         }
         

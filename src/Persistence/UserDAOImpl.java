@@ -22,10 +22,8 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
         checkIfTableExists();
     }
     
-    private void checkIfTableExists() 
-    {
-        try 
-        {
+    private void checkIfTableExists() {
+        try {
            // Revisar si existe la Tabla de usuarios
             DatabaseMetaData dbmd = connection.getMetaData();   //Obtener meta-datos de base de datos
             ResultSet tables = dbmd.getTables(null, null, "USERS", null);   //Buscar tabla USERS
@@ -49,8 +47,7 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
                 tables.close();
             } 
         }
-        catch(Exception e) 
-        {
+        catch(Exception e) {
            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
            System.exit(0); // Cerrar pantalla
         }
@@ -59,8 +56,7 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
     
     // Revisar si nombre de usuario ya existe
     @Override
-    public boolean checkIfUsernameExists(String username)
-    {
+    public boolean checkIfUsernameExists(String username) {
         boolean checkUser = false;
         PreparedStatement ps;
         ResultSet rs;
@@ -73,8 +69,7 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
             
             rs = ps.executeQuery(); //Ejecuta el codigo SQL
             
-            if(rs.next())
-            {
+            if(rs.next()) {
                 checkUser = true;
             }
             rs.close();
@@ -94,8 +89,7 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
         
         String query = "INSERT INTO USERS (FNAME, LNAME, UNAME, PSWD, BDATE, ADDRESS) VALUES (?,?,?,?,?,?)";
         
-        try 
-        {
+        try {
             ps = connection.prepareStatement(query);
 
             for(String data: newUser.getData()) { 
@@ -103,13 +97,11 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
                 i++;
             }
             
-            if(ps.executeUpdate() > 0)
-            {
+            if(ps.executeUpdate() > 0) {
                 userAdded = true;
             }
         }  
-        catch (SQLException ex) 
-        {
+        catch (SQLException ex) {
             Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -125,22 +117,19 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
         
         String query = "SELECT * FROM USERS WHERE UNAME=? AND PSWD=?";
         
-        try 
-        {
+        try {
             ps = connection.prepareStatement(query);
 
             ps.setString(1, userName);
             ps.setString(2, password);
             rs = ps.executeQuery();
             
-            if(rs.next())
-            {
+            if(rs.next()) {
                 rs.close();
                 loginSuccess = true;
             }
         }  
-        catch (SQLException ex) 
-        {
+        catch (SQLException ex) {
             Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -156,21 +145,19 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
         
         String query = "SELECT * FROM USERS WHERE UNAME=?";
         
-        try 
-        {
+        try {
             ps = connection.prepareStatement(query);
 
             ps.setString(1, userName);
             rs = ps.executeQuery();
             
-            for(int i=0; i<6; i++){
+            for(int i=0; i<6; i++) {
                 userInfo[i] = rs.getString(i+2);
             }
             
             rs.close();
         }  
-        catch (SQLException ex) 
-        {
+        catch (SQLException ex) {
             Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -185,8 +172,7 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
         
         String query = "UPDATE USERS SET FNAME=?, LNAME=?, UNAME=?, PSWD=?, BDATE=?, ADDRESS=? WHERE UNAME=? AND PSWD=?";
         
-        try 
-        {
+        try {
             ps = connection.prepareStatement(query);
 
             for(String data: updatedUser.getData()) { 
@@ -197,13 +183,11 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
             ps.setString(7, oldUName);
             ps.setString(8, oldPswd);
             
-            if(ps.executeUpdate() > 0)
-            {
+            if(ps.executeUpdate() > 0) {
                 userUpdated = true;
             }
         }  
-        catch (SQLException e) 
-        {
+        catch (SQLException e) {
             Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, e);
         }
         
@@ -217,19 +201,16 @@ class UserDAOImpl implements UserDAO { //Sin modificador solo puede ser implemen
         
         String query = "DELETE FROM USERS WHERE UNAME=? AND PSWD=?";
         
-        try 
-        {
+        try {
             ps = connection.prepareStatement(query);
             ps.setString(1, userName);
             ps.setString(2, password);
             
-            if(ps.executeUpdate() > 0)
-            {
+            if(ps.executeUpdate() > 0) {
                 userDeleted = true;
             }
         }  
-        catch (SQLException ex) 
-        {
+        catch (SQLException ex) {
             Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
         }
         

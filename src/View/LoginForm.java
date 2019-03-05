@@ -28,14 +28,14 @@ public class LoginForm extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabelClose = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelLogin = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
         jLabelBack = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jLabelUN = new javax.swing.JLabel();
+        jLabelPswd = new javax.swing.JLabel();
+        jTextFieldUN = new javax.swing.JTextField();
+        jPasswordFieldPswd = new javax.swing.JPasswordField();
         jButtonLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,9 +52,9 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Iniciar Sesión");
+        jLabelLogin.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelLogin.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelLogin.setText("Iniciar Sesión");
 
         jLabelMin.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
@@ -84,7 +84,7 @@ public class LoginForm extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabelBack, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(jLabelLogin)
                 .addGap(70, 70, 70)
                 .addComponent(jLabelMin)
                 .addGap(18, 18, 18)
@@ -98,28 +98,28 @@ public class LoginForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelMin, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addComponent(jLabelClose)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(jLabelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                     .addComponent(jLabelBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(44, 62, 80));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(236, 240, 241));
-        jLabel4.setText("Nombre de Usuario:");
+        jLabelUN.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelUN.setForeground(new java.awt.Color(236, 240, 241));
+        jLabelUN.setText("Nombre de Usuario:");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(236, 240, 241));
-        jLabel5.setText("Contraseña:");
+        jLabelPswd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelPswd.setForeground(new java.awt.Color(236, 240, 241));
+        jLabelPswd.setText("Contraseña:");
 
-        jTextField1.setBackground(new java.awt.Color(108, 122, 137));
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(228, 241, 254));
+        jTextFieldUN.setBackground(new java.awt.Color(108, 122, 137));
+        jTextFieldUN.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldUN.setForeground(new java.awt.Color(228, 241, 254));
 
-        jPasswordField1.setBackground(new java.awt.Color(108, 122, 137));
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(228, 241, 254));
+        jPasswordFieldPswd.setBackground(new java.awt.Color(108, 122, 137));
+        jPasswordFieldPswd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPasswordFieldPswd.setForeground(new java.awt.Color(228, 241, 254));
 
         jButtonLogin.setBackground(new java.awt.Color(34, 167, 240));
         jButtonLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -138,14 +138,14 @@ public class LoginForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelUN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelPswd, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPasswordField1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordFieldPswd)
+                    .addComponent(jTextFieldUN, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(147, 147, 147)
@@ -157,12 +157,12 @@ public class LoginForm extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelUN)
+                    .addComponent(jTextFieldUN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jPasswordFieldPswd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPswd))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
@@ -203,23 +203,22 @@ public class LoginForm extends javax.swing.JFrame {
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         String msg = 
             JDBC.tryLogin(
-                jTextField1.getText(), 
-                String.valueOf(jPasswordField1.getPassword())
+                jTextFieldUN.getText(), 
+                String.valueOf(jPasswordFieldPswd.getPassword())
             );
 
-        if(msg.equals("Bienvenido!"))
-        {
+        if(msg.equals("Bienvenido!")) {
             WelcomeForm welcomeForm = new WelcomeForm();
             Form.setupForm(welcomeForm);
             JDBC.loginUser(
-                jTextField1.getText(), 
+                jTextFieldUN.getText(), 
                 welcomeForm
             );
             //mf.setExtendedState(JFrame.MAXIMIZED_BOTH);
             
             this.dispose();
         }
-        else{
+        else {
             JOptionPane.showMessageDialog(null, "Nombre de Usuario o Contraseña Incorrecta", "Login Failed", 2);
         }
     }//GEN-LAST:event_jButtonLoginActionPerformed
@@ -262,15 +261,15 @@ public class LoginForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelBack;
     private javax.swing.JLabel jLabelClose;
+    private javax.swing.JLabel jLabelLogin;
     private javax.swing.JLabel jLabelMin;
+    private javax.swing.JLabel jLabelPswd;
+    private javax.swing.JLabel jLabelUN;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPasswordFieldPswd;
+    private javax.swing.JTextField jTextFieldUN;
     // End of variables declaration//GEN-END:variables
 }

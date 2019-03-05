@@ -31,7 +31,7 @@ public class MainMenu extends javax.swing.JFrame {
         jButtonUpdate = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelMenu = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
         jLabelClose = new javax.swing.JLabel();
 
@@ -71,9 +71,9 @@ public class MainMenu extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(248, 148, 6));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Menú");
+        jLabelMenu.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelMenu.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMenu.setText("Menú");
 
         jLabelMin.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,7 +101,7 @@ public class MainMenu extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(105, 105, 105)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -113,7 +113,7 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(jLabelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addComponent(jLabelMin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelClose))
                 .addContainerGap())
@@ -240,8 +240,8 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonSignUp;
     private javax.swing.JButton jButtonUpdate;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelClose;
+    private javax.swing.JLabel jLabelMenu;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -52,7 +52,7 @@
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="jLabelBack1" min="-2" pref="31" max="-2" attributes="0"/>
                   <EmptySpace pref="50" max="32767" attributes="0"/>
-                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelWelcome" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                   <Component id="jLabelMin1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -68,7 +68,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelMin1" alignment="3" pref="38" max="32767" attributes="0"/>
                       <Component id="jLabelClose1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="3" pref="40" max="32767" attributes="0"/>
+                      <Component id="jLabelWelcome" alignment="3" pref="40" max="32767" attributes="0"/>
                       <Component id="jLabelBack1" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -94,7 +94,7 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelClose1MouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="jLabelWelcome">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="1"/>
@@ -154,12 +154,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
-                      <Component id="jLabelName1" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelName2" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelName3" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelName4" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelName5" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelName6" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelNameFN" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelNameLN" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelNameUN" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelNamePswd" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelNameBDate" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelNameAddress" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -169,24 +169,24 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="42" max="32767" attributes="0"/>
-                  <Component id="jLabelName1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNameFN" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabelName2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNameLN" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabelName3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNameUN" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabelName4" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNamePswd" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabelName5" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNameBDate" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabelName6" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNameAddress" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabelName1">
+        <Component class="javax.swing.JLabel" name="jLabelNameFN">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tekton Pro" size="24" style="0"/>
@@ -196,11 +196,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelName2">
+        <Component class="javax.swing.JLabel" name="jLabelNameLN">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tekton Pro" size="24" style="0"/>
@@ -210,11 +207,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Apellido"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelName3">
+        <Component class="javax.swing.JLabel" name="jLabelNameUN">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tekton Pro" size="24" style="0"/>
@@ -224,11 +218,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Usuario"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelName4">
+        <Component class="javax.swing.JLabel" name="jLabelNamePswd">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tekton Pro" size="24" style="0"/>
@@ -238,11 +229,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Pswd"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelName5">
+        <Component class="javax.swing.JLabel" name="jLabelNameBDate">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tekton Pro" size="24" style="0"/>
@@ -252,11 +240,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Fecha"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelName6">
+        <Component class="javax.swing.JLabel" name="jLabelNameAddress">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tekton Pro" size="24" style="0"/>
@@ -266,9 +251,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Lugar"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

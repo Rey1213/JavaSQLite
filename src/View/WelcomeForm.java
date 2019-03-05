@@ -15,12 +15,12 @@ public class WelcomeForm extends javax.swing.JFrame {
     }
     
     public void showUserInfo(String[] userInfo) {
-        this.jLabelName1.setText(userInfo[0]);
-        this.jLabelName2.setText(userInfo[1]);
-        this.jLabelName3.setText(userInfo[2]);
-        this.jLabelName4.setText(userInfo[3]);
-        this.jLabelName5.setText(userInfo[4]);
-        this.jLabelName6.setText(userInfo[5]);
+        this.jLabelNameFN.setText(userInfo[0]);
+        this.jLabelNameLN.setText(userInfo[1]);
+        this.jLabelNameUN.setText(userInfo[2]);
+        this.jLabelNamePswd.setText(userInfo[3]);
+        this.jLabelNameBDate.setText(userInfo[4]);
+        this.jLabelNameAddress.setText(userInfo[5]);
     }
 
     /**
@@ -34,16 +34,16 @@ public class WelcomeForm extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jLabelClose1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelWelcome = new javax.swing.JLabel();
         jLabelMin1 = new javax.swing.JLabel();
         jLabelBack1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabelName1 = new javax.swing.JLabel();
-        jLabelName2 = new javax.swing.JLabel();
-        jLabelName3 = new javax.swing.JLabel();
-        jLabelName4 = new javax.swing.JLabel();
-        jLabelName5 = new javax.swing.JLabel();
-        jLabelName6 = new javax.swing.JLabel();
+        jLabelNameFN = new javax.swing.JLabel();
+        jLabelNameLN = new javax.swing.JLabel();
+        jLabelNameUN = new javax.swing.JLabel();
+        jLabelNamePswd = new javax.swing.JLabel();
+        jLabelNameBDate = new javax.swing.JLabel();
+        jLabelNameAddress = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,9 +59,9 @@ public class WelcomeForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Welcome!");
+        jLabelWelcome.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelWelcome.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelWelcome.setText("Welcome!");
 
         jLabelMin1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelMin1.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,7 +91,7 @@ public class WelcomeForm extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabelBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addComponent(jLabelWelcome)
                 .addGap(70, 70, 70)
                 .addComponent(jLabelMin1)
                 .addGap(18, 18, 18)
@@ -105,36 +105,36 @@ public class WelcomeForm extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelMin1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addComponent(jLabelClose1)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(jLabelWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                     .addComponent(jLabelBack1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jPanel1.setBackground(new java.awt.Color(44, 62, 80));
 
-        jLabelName1.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
-        jLabelName1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelName1.setText("Nombre");
+        jLabelNameFN.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
+        jLabelNameFN.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNameFN.setText("Nombre");
 
-        jLabelName2.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
-        jLabelName2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelName2.setText("Apellido");
+        jLabelNameLN.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
+        jLabelNameLN.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNameLN.setText("Apellido");
 
-        jLabelName3.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
-        jLabelName3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelName3.setText("Usuario");
+        jLabelNameUN.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
+        jLabelNameUN.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNameUN.setText("Usuario");
 
-        jLabelName4.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
-        jLabelName4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelName4.setText("Pswd");
+        jLabelNamePswd.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
+        jLabelNamePswd.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNamePswd.setText("Pswd");
 
-        jLabelName5.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
-        jLabelName5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelName5.setText("Fecha");
+        jLabelNameBDate.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
+        jLabelNameBDate.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNameBDate.setText("Fecha");
 
-        jLabelName6.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
-        jLabelName6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelName6.setText("Lugar");
+        jLabelNameAddress.setFont(new java.awt.Font("Tekton Pro", 0, 24)); // NOI18N
+        jLabelNameAddress.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNameAddress.setText("Lugar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -143,29 +143,29 @@ public class WelcomeForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(98, 98, 98)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabelName1)
-                    .addComponent(jLabelName2)
-                    .addComponent(jLabelName3)
-                    .addComponent(jLabelName4)
-                    .addComponent(jLabelName5)
-                    .addComponent(jLabelName6))
+                    .addComponent(jLabelNameFN)
+                    .addComponent(jLabelNameLN)
+                    .addComponent(jLabelNameUN)
+                    .addComponent(jLabelNamePswd)
+                    .addComponent(jLabelNameBDate)
+                    .addComponent(jLabelNameAddress))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(42, Short.MAX_VALUE)
-                .addComponent(jLabelName1)
+                .addComponent(jLabelNameFN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelName2)
+                .addComponent(jLabelNameLN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelName3)
+                .addComponent(jLabelNameUN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelName4)
+                .addComponent(jLabelNamePswd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelName5)
+                .addComponent(jLabelNameBDate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelName6)
+                .addComponent(jLabelNameAddress)
                 .addGap(30, 30, 30))
         );
 
@@ -240,22 +240,17 @@ public class WelcomeForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabelBack;
     private javax.swing.JLabel jLabelBack1;
-    private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelClose1;
-    private javax.swing.JLabel jLabelMin;
     private javax.swing.JLabel jLabelMin1;
-    public javax.swing.JLabel jLabelName1;
-    public javax.swing.JLabel jLabelName2;
-    public javax.swing.JLabel jLabelName3;
-    public javax.swing.JLabel jLabelName4;
-    public javax.swing.JLabel jLabelName5;
-    public javax.swing.JLabel jLabelName6;
+    private javax.swing.JLabel jLabelNameAddress;
+    private javax.swing.JLabel jLabelNameBDate;
+    private javax.swing.JLabel jLabelNameFN;
+    private javax.swing.JLabel jLabelNameLN;
+    private javax.swing.JLabel jLabelNamePswd;
+    private javax.swing.JLabel jLabelNameUN;
+    private javax.swing.JLabel jLabelWelcome;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,15 +28,15 @@ public class DeleteForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldUN = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelBorrar = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
         jLabelClose = new javax.swing.JLabel();
         jLabelBack = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButtonErase = new javax.swing.JButton();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        jPasswordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,9 +44,9 @@ public class DeleteForm extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(248, 148, 6));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Borrar Usuario");
+        jLabelBorrar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelBorrar.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelBorrar.setText("Borrar Usuario");
 
         jLabelMin.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
@@ -86,7 +86,7 @@ public class DeleteForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabelBack, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
-                .addComponent(jLabel1)
+                .addComponent(jLabelBorrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -100,7 +100,7 @@ public class DeleteForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelMin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelClose)
-                    .addComponent(jLabel1)
+                    .addComponent(jLabelBorrar)
                     .addComponent(jLabelBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -128,8 +128,8 @@ public class DeleteForm extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(117, 117, 117)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldUN, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jLabel2))
@@ -145,9 +145,9 @@ public class DeleteForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(46, 46, 46)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldUN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jButtonErase, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -184,24 +184,20 @@ public class DeleteForm extends javax.swing.JFrame {
     private void jButtonEraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEraseActionPerformed
         String msg = 
             JDBC.deleteUser(
-                jTextField1.getText(), 
-                String.valueOf(jPasswordField2.getPassword())
+                jTextFieldUN.getText(), 
+                String.valueOf(jPasswordField.getPassword())
             );
         
-        
-        if(msg.equals("Usuario Borrado"))
-        {
+        if(msg.equals("Usuario Borrado")) {
             JOptionPane.showMessageDialog(null, msg);
 
             MainMenu mainMenu = new MainMenu();
             Form.setupForm(mainMenu);
             this.dispose();
         }
-        else 
-        {
+        else {
             JOptionPane.showMessageDialog(null, msg, "Erase Failed", WARNING_MESSAGE);
         }
-        
     }//GEN-LAST:event_jButtonEraseActionPerformed
 
     /**
@@ -242,14 +238,14 @@ public class DeleteForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonErase;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelBack;
+    private javax.swing.JLabel jLabelBorrar;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPasswordField;
+    private javax.swing.JTextField jTextFieldUN;
     // End of variables declaration//GEN-END:variables
 }
