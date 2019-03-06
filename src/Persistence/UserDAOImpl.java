@@ -2,7 +2,10 @@ package Persistence;
 
 import Controller.JDBC;
 import Model.User;
+import View.DeleteForm;
 import View.SignUpForm;
+import View.UpdateForm;
+import View.WelcomeForm;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
@@ -55,34 +58,6 @@ class UserDAOImpl implements UserDAO {
         }
     }
     
-    
-    // Revisar si nombre de usuario existe
-    @Override
-    public boolean checkIfUsernameExists(String username) {
-        boolean checkUser = false;
-        PreparedStatement ps;       //Para poder dinamicamente construir comandos SQL
-        ResultSet rs;               //Para almacenar datos de un SQL Query
-        
-        String query = "SELECT * FROM USERS WHERE UNAME=?";
-        
-        try {
-            ps = connection.prepareStatement(query); //Preparar codigo SQL
-            ps.setString(1, username);
-            
-            rs = ps.executeQuery(); //Ejecuta el codigo SQL
-            
-            if(rs.next()) { //Si verdadero significa que se obtenieron datos de la Base de Datos
-                checkUser = true;
-            }
-            rs.close();
-        } 
-        catch (SQLException ex) {
-            Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return checkUser;
-    }
-    
     //Crear nuevo usuario
     @Override
     public boolean createUser(User newUser) {
@@ -104,17 +79,44 @@ class UserDAOImpl implements UserDAO {
                 userAdded = true;
             }
         }  
-        catch (SQLException ex) {
-            Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
+        catch (SQLException e) {
+            Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, e);
         }
         
         return userAdded;
     }
     
+    // Revisar si nombre de usuario existe
+    @Override
+    public boolean checkIfUsernameExists(String username) {
+        boolean checkUser = false;
+        PreparedStatement ps;       //Para poder dinamicamente construir comandos SQL
+        ResultSet rs;               //Para almacenar datos de un SQL Query
+        
+        String query = "SELECT * FROM USERS WHERE UNAME=?";
+        
+        try {
+            ps = connection.prepareStatement(query); //Preparar codigo SQL
+            ps.setString(1, username);
+            
+            rs = ps.executeQuery(); //Ejecuta el codigo SQL
+            
+            if(rs.next()) { //Si verdadero significa que se obtenieron datos de la Base de Datos
+                checkUser = true;
+            }
+            rs.close();
+        } 
+        catch (SQLException e) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+        }
+        
+        return checkUser;
+    }
+    
     // Validar Usuario
     @Override
     public boolean validateUser(String userName, String password) {
-        boolean loginSuccess = false;
+        boolean isUser = false;
         PreparedStatement ps;
         ResultSet rs;
         
@@ -129,14 +131,14 @@ class UserDAOImpl implements UserDAO {
             
             if(rs.next()) {
                 rs.close();
-                loginSuccess = true;
+                isUser = true;
             }
         }  
-        catch (SQLException ex) {
-            Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
+        catch (SQLException e) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
         }
         
-        return loginSuccess;
+        return isUser;
     }
     
     // Obtener los datos del Usuario
@@ -150,8 +152,8 @@ class UserDAOImpl implements UserDAO {
         
         try {
             ps = connection.prepareStatement(query);
-
             ps.setString(1, userName);
+            
             rs = ps.executeQuery();
             
             for(int i=0; i<6; i++) {
@@ -160,8 +162,8 @@ class UserDAOImpl implements UserDAO {
             
             rs.close();
         }  
-        catch (SQLException ex) {
-            Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
+        catch (SQLException e) {
+            Logger.getLogger(WelcomeForm.class.getName()).log(Level.SEVERE, null, e);
         }
         
         return userInfo;
@@ -192,7 +194,7 @@ class UserDAOImpl implements UserDAO {
             }
         }  
         catch (SQLException e) {
-            Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(UpdateForm.class.getName()).log(Level.SEVERE, null, e);
         }
         
         return userUpdated;
@@ -215,8 +217,8 @@ class UserDAOImpl implements UserDAO {
                 userDeleted = true;
             }
         }  
-        catch (SQLException ex) {
-            Logger.getLogger(SignUpForm.class.getName()).log(Level.SEVERE, null, ex);
+        catch (SQLException e) {
+            Logger.getLogger(DeleteForm.class.getName()).log(Level.SEVERE, null, e);
         }
         
         return userDeleted;

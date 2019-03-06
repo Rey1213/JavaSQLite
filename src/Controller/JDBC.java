@@ -5,6 +5,8 @@ package Controller;
 // Descargar J-Calender:                http://www.toedter.com/download/jcalendar-1.4.zip
 // Descargar SQLite JDBC para Java:     https://bitbucket.org/xerial/sqlite-jdbc/downloads/
 // Ver Base de Datos                    https://sqliteonline.com
+// Simbolos Unicode                     http://xahlee.info/comp/unicode_index.html
+// Para Colores                         https://colorhunt.co/palettes/popular
 
 import Model.User;
 import Persistence.UserService;
@@ -24,12 +26,10 @@ import java.util.Date;
 public class JDBC { //Java DataBase Connectivity
     public static UserService userDB = new UserService(); //Para operaciones en la Base de Datos
     
-    public static Connection getConnection()
-    {
+    public static Connection getConnection() {
         Connection connection = null;   //Para conectarse a una base de datos
       
         try {
-            
            Class.forName("org.sqlite.JDBC"); //Agarrar Clase para Driver particular
            connection = DriverManager.getConnection("jdbc:sqlite:user.db"); //Realizar conexion con SQLite
         } 
@@ -46,7 +46,10 @@ public class JDBC { //Java DataBase Connectivity
         String msg = "";
         
         if(user.getfName().equals("")) {
-            msg = "Introduzca nombre de Usuario";
+            msg = "Introduzca un nombre";
+        }
+        else if(user.getuName().equals("")) {
+            msg = "Introduzca un nombre de Usuario";
         }
         else if(user.getPswd().equals("")) {
             msg = "Introduzca Contraseña";
