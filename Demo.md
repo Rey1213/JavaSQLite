@@ -207,9 +207,7 @@ _Crear Nuevo Usuario_
 public boolean createUser(String uName, String pswd) {
     boolean userAdded = false;
 	PreparedStatement ps;
-	String query = "INSERT INTO USERS " + 
-		"(UNAME, PSWD)" + 
-		" VALUES (?,?)";
+	String query = "?"
 	
 	try {
 		ps = connection.prepareStatement(query);
@@ -235,7 +233,7 @@ public boolean checkIfUsernameExists(String uName) {
 	PreparedStatement ps;
 	ResultSet rs;
 	    
-	String query = "SELECT * FROM USERS WHERE UNAME=?";
+	String query = "?";
 	    
 	try {
 	    ps = connection.prepareStatement(query);
@@ -265,7 +263,7 @@ public boolean validateUser(String uName, String pswd) {
 	PreparedStatement ps;
 	ResultSet rs;
 	    
-	String query = "SELECT * FROM USERS WHERE UNAME=? AND PSWD=?";
+	String query = "?";
 	    
 	try {
 	    ps = connection.prepareStatement(query);
@@ -295,7 +293,7 @@ public String[] readDbUserInfo(String userName) {
 	PreparedStatement ps;
 	ResultSet rs;
 	    
-	String query = "SELECT * FROM USERS WHERE UNAME=?";
+	String query = "?";
 	    
 	try {
 	    ps = connection.prepareStatement(query);
@@ -325,7 +323,7 @@ public boolean updateUser(String newUName, String newPswd, String oldUName, Stri
     boolean userUpdated = false;
     PreparedStatement ps;
     
-    String query = "UPDATE USERS SET UNAME=?, PSWD=? WHERE UNAME=? AND PSWD=?";
+    String query = "?";
     
     try {
         ps = connection.prepareStatement(query);
@@ -354,7 +352,7 @@ public boolean deleteUser(String userName, String password) {
     boolean userDeleted = false;
     PreparedStatement ps;
     
-    String query = "DELETE FROM USERS WHERE UNAME=? AND PSWD=?";
+    String query = "?";
     
     try {
         ps = connection.prepareStatement(query);
